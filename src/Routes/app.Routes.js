@@ -4,7 +4,7 @@ import { Episodes } from "../pages/Episodes";
 import { Characters } from "../pages/Characters";
 import { Locations } from "../pages/Locations";
 import { Home } from "../pages/Home";
-import {} from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
@@ -12,6 +12,7 @@ export function AppRoutes() {
   return (
     <Tab.Navigator
       screenOptions={{
+        tabBarActiveTintColor: "#8bcf21",
         tabBarShowLabel: false,
         tabBarStyle: {
           position: "absolute",
@@ -25,10 +26,56 @@ export function AppRoutes() {
         headerShown: false,
       }}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Characters" component={Characters} />
-      <Tab.Screen name="Episodes" component={Episodes} />
-      <Tab.Screen name="Locations" component={Locations} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <Ionicons name="home" size={size} color={color} />;
+            }
+            return <Ionicons name="home-outline" size={size} color={color} />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Characters"
+        component={Characters}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <Ionicons name="people-sharp" size={size} color={color} />;
+            }
+            return <Ionicons name="people-outline" size={size} color={color} />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Episodes"
+        component={Episodes}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <Ionicons name="albums" size={size} color={color} />;
+            }
+            return <Ionicons name="albums-outline" size={size} color={color} />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Locations"
+        component={Locations}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => {
+            if (focused) {
+              return <Ionicons name="md-location" size={size} color={color} />;
+            }
+            return (
+              <Ionicons name="md-location-outline" size={size} color={color} />
+            );
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 }
