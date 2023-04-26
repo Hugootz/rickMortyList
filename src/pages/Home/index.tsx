@@ -16,5 +16,3 @@ const styles = StyleSheet.create({
   },
   textHome: { color: "#8bcf21", marginTop: "30%" },
 });
-
-// como chamar api em uma lista?
