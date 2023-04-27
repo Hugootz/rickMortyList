@@ -13,6 +13,7 @@ export function AppRoutes() {
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: "#8bcf21",
+        tabBarInactiveTintColor: "#fff",
         tabBarShowLabel: false,
         tabBarStyle: {
           position: "absolute",
