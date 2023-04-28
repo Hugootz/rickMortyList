@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts, Creepster_400Regular } from "@expo-google-fonts/creepster";
 export function Locations() {
@@ -9,10 +16,22 @@ export function Locations() {
     return null;
   }
   SplashScreen.hideAsync();
+  const DismissKeyboard = ({ children }) => (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      {children}
+    </TouchableWithoutFeedback>
+  );
   return (
-    <View style={styles.container}>
-      <Text style={styles.textLocations}>Localizações</Text>
-    </View>
+    <DismissKeyboard>
+      <View style={styles.container}>
+        <Text style={styles.textLocations}>Localizações</Text>
+        <TextInput
+          placeholder="Encontre a localização"
+          placeholderTextColor="#8bcf21"
+          style={styles.inputLocations}
+        />
+      </View>
+    </DismissKeyboard>
   );
 }
 const styles = StyleSheet.create({
@@ -28,5 +47,13 @@ const styles = StyleSheet.create({
     fontSize: 35,
     marginRight: "45%",
     top: -10,
+  },
+  inputLocations: {
+    padding: 10,
+    backgroundColor: "#3f3f3f",
+    paddingHorizontal: 80,
+    borderRadius: 10,
+    elevation: 20,
+    color: "#8bcf21",
   },
 });
