@@ -28,13 +28,11 @@ export function Characters() {
       <View style={styles.container}>
         <Text style={styles.textCharacters}>Personagens</Text>
 
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder="Procure seu personagem"
-            placeholderTextColor="#8bcf21"
-            style={styles.inputCharacters}
-          />
-        </View>
+        <TextInput
+          placeholder="Encontre o personagem"
+          placeholderTextColor="#8bcf21"
+          style={styles.inputCharacters}
+        />
       </View>
     </DismissKeyboard>
   );
@@ -61,5 +59,4 @@ const styles = StyleSheet.create({
     elevation: 20,
     color: "#8bcf21",
   },
-  inputContainer: {},
 });
