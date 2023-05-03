@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     marginTop: "25%",
     fontSize: 35,
     marginRight: "55%",
-    top: -10,
+    top: -15,
   },
   inputEpisodes: {
     padding: 10,
