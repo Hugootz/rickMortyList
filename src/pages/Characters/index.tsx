@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -6,10 +6,13 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   Keyboard,
+  FlatList,
+  SafeAreaView,
 } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 
 import { useFonts, Creepster_400Regular } from "@expo-google-fonts/creepster";
+import api from "../../services/api";
 export function Characters() {
   SplashScreen.preventAutoHideAsync();
   const [fontsLoaded] = useFonts({ Creepster_400Regular });
@@ -23,16 +26,18 @@ export function Characters() {
       {children}
     </TouchableWithoutFeedback>
   );
+
   return (
     <DismissKeyboard>
       <View style={styles.container}>
-        <Text style={styles.textCharacters}>Personagens</Text>
-
-        <TextInput
-          placeholder="Encontre o personagem"
-          placeholderTextColor="#8bcf21"
-          style={styles.inputCharacters}
-        />
+        <SafeAreaView>
+          <Text style={styles.textCharacters}>Personagens</Text>
+          <TextInput
+            placeholder="Encontre o personagem"
+            placeholderTextColor="#8bcf21"
+            style={styles.inputCharacters}
+          />
+        </SafeAreaView>
       </View>
     </DismissKeyboard>
   );
@@ -58,5 +63,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     elevation: 20,
     color: "#8bcf21",
+    textAlign: "center",
   },
 });
