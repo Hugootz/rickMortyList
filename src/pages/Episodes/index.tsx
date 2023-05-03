@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   Keyboard,
+  SafeAreaView,
 } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts, Creepster_400Regular } from "@expo-google-fonts/creepster";
@@ -24,12 +25,14 @@ export function Episodes() {
   return (
     <DismissKeyboard>
       <View style={styles.container}>
-        <Text style={styles.textEpisodes}>Episódios</Text>
-        <TextInput
-          placeholder="Encontre o episódio"
-          placeholderTextColor="#8bcf21"
-          style={styles.inputEpisodes}
-        />
+        <SafeAreaView>
+          <Text style={styles.textEpisodes}>Episódios</Text>
+          <TextInput
+            placeholder="Encontre o episódio"
+            placeholderTextColor="#8bcf21"
+            style={styles.inputEpisodes}
+          />
+        </SafeAreaView>
       </View>
     </DismissKeyboard>
   );
@@ -55,5 +58,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     elevation: 20,
     color: "#8bcf21",
+    textAlign: "center",
   },
 });
