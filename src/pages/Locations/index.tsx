@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   Keyboard,
+  SafeAreaView,
 } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts, Creepster_400Regular } from "@expo-google-fonts/creepster";
@@ -24,12 +25,14 @@ export function Locations() {
   return (
     <DismissKeyboard>
       <View style={styles.container}>
-        <Text style={styles.textLocations}>Localizações</Text>
-        <TextInput
-          placeholder="Encontre a localização"
-          placeholderTextColor="#8bcf21"
-          style={styles.inputLocations}
-        />
+        <SafeAreaView>
+          <Text style={styles.textLocations}>Localizações</Text>
+          <TextInput
+            placeholder="Encontre a localização"
+            placeholderTextColor="#8bcf21"
+            style={styles.inputLocations}
+          />
+        </SafeAreaView>
       </View>
     </DismissKeyboard>
   );
@@ -55,5 +58,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     elevation: 20,
     color: "#8bcf21",
+    textAlign: "center",
   },
 });
