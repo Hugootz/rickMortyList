@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     marginTop: "25%",
     fontSize: 35,
     marginRight: "43%",
-    top: -10,
+    top: -15,
   },
   inputCharacters: {
     padding: 10,
