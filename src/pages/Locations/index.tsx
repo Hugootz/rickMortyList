@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     marginTop: "25%",
     fontSize: 35,
     marginRight: "45%",
-    top: -10,
+    top: -15,
   },
   inputLocations: {
     padding: 10,
