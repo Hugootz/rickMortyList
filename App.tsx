@@ -11,6 +11,7 @@ export default function App() {
     return null;
   }
   SplashScreen.hideAsync();
+
   return (
     <NavigationContainer>
       <StatusBar backgroundColor="#202020" translucent={true} />
