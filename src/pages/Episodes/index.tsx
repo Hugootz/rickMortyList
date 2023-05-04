@@ -1,20 +1,8 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableWithoutFeedback,
-  Keyboard,
-  SafeAreaView,
-} from "react-native";
+import { View, Text, StyleSheet, TextInput, SafeAreaView } from "react-native";
+import { DismissKeyboard } from "../../components/DismissKeyboard";
 
 export function Episodes() {
-  const DismissKeyboard = ({ children }) => (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      {children}
-    </TouchableWithoutFeedback>
-  );
   return (
     <DismissKeyboard>
       <View style={styles.container}>

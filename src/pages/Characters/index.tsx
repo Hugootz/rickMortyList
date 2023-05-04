@@ -4,13 +4,13 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  TouchableWithoutFeedback,
-  Keyboard,
   FlatList,
   SafeAreaView,
 } from "react-native";
-
 import api from "../../services/api";
+import { ListCard } from "../../components/ListCard";
+import { DismissKeyboard } from "../../components/DismissKeyboard";
+
 export function Characters() {
   const [list, setList] = useState([]);
 
@@ -26,11 +26,6 @@ export function Characters() {
   useEffect(() => {
     getCharacters();
   }, []);
-  const DismissKeyboard = ({ children }) => (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      {children}
-    </TouchableWithoutFeedback>
-  );
 
   return (
     <DismissKeyboard>
@@ -45,7 +40,11 @@ export function Characters() {
           <FlatList
             data={list}
             keyExtractor={(item) => item.id}
-            renderItem={({ item }) => item}
+            renderItem={({ item }) => (
+              <View style={styles.renderView}>
+                <Text style={styles.renderText}>{item}</Text>
+              </View>
+            )}
           />
         </SafeAreaView>
       </View>
@@ -75,4 +74,6 @@ const styles = StyleSheet.create({
     color: "#8bcf21",
     textAlign: "center",
   },
+  renderView: { flex: 1, backgroundColor: "#fff" },
+  renderText: {},
 });
