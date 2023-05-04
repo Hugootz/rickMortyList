@@ -3,12 +3,6 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts, Creepster_400Regular } from "@expo-google-fonts/creepster";
 export function Home() {
-  SplashScreen.preventAutoHideAsync();
-  const [fontsLoaded] = useFonts({ Creepster_400Regular });
-  if (!fontsLoaded) {
-    return null;
-  }
-  SplashScreen.hideAsync();
   return (
     <View style={styles.container}>
       <Text style={styles.textHome}>Rick and Morty</Text>
