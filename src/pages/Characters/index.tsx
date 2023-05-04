@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -9,18 +9,23 @@ import {
   FlatList,
   SafeAreaView,
 } from "react-native";
-import * as SplashScreen from "expo-splash-screen";
 
-import { useFonts, Creepster_400Regular } from "@expo-google-fonts/creepster";
 import api from "../../services/api";
 export function Characters() {
-  SplashScreen.preventAutoHideAsync();
-  const [fontsLoaded] = useFonts({ Creepster_400Regular });
-  if (!fontsLoaded) {
-    return null;
-  }
-  SplashScreen.hideAsync();
+  const [list, setList] = useState([]);
 
+  async function getCharacters() {
+    try {
+      const data = await api.get("/character");
+      setList(data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getCharacters();
+  }, []);
   const DismissKeyboard = ({ children }) => (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       {children}
@@ -36,6 +41,11 @@ export function Characters() {
             placeholder="Encontre o personagem"
             placeholderTextColor="#8bcf21"
             style={styles.inputCharacters}
+          />
+          <FlatList
+            data={list}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => item}
           />
         </SafeAreaView>
       </View>
