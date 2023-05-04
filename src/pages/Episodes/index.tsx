@@ -8,15 +8,8 @@ import {
   Keyboard,
   SafeAreaView,
 } from "react-native";
-import * as SplashScreen from "expo-splash-screen";
-import { useFonts, Creepster_400Regular } from "@expo-google-fonts/creepster";
+
 export function Episodes() {
-  SplashScreen.preventAutoHideAsync();
-  const [fontsLoaded] = useFonts({ Creepster_400Regular });
-  if (!fontsLoaded) {
-    return null;
-  }
-  SplashScreen.hideAsync();
   const DismissKeyboard = ({ children }) => (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       {children}
