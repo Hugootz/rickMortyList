@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, TouchableOpacity } from "react-native";
 
 export function ListCard({ data }) {
   return (
@@ -11,11 +11,11 @@ export function ListCard({ data }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    backgroundColor: "#6f6f6f",
     margin: 10,
-    padding: 20,
-    marginHorizontal: 10,
+    padding: 30,
+
     borderRadius: 8,
   },
-  textList: { color: "#000" },
+  textList: { color: "#fff", fontWeight: "bold" },
 });
