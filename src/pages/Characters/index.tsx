@@ -23,8 +23,8 @@ export function Characters() {
 
   async function getCharacters() {
     try {
-      const data = await api.get("/character");
-      setList(data.data.results);
+      const dataC = await api.get("/character");
+      setList(dataC.data.results);
     } catch (error) {
       console.log(error);
     }
