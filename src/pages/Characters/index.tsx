@@ -11,13 +11,20 @@ import api from "../../services/api";
 import { ListCard } from "../../components/ListCard";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
 
+interface CharactersCard {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+}
+
 export function Characters() {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState<CharactersCard[]>([]);
 
   async function getCharacters() {
     try {
       const data = await api.get("/character");
-      setList(data.data);
+      setList(data.data.results);
     } catch (error) {
       console.log(error);
     }
@@ -38,13 +45,12 @@ export function Characters() {
             style={styles.inputCharacters}
           />
           <FlatList
+            showsVerticalScrollIndicator={false}
+            style={{ marginTop: 35 }}
+            contentContainerStyle={{ marginHorizontal: 20 }}
             data={list}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <View style={styles.renderView}>
-                <Text style={styles.renderText}>{item}</Text>
-              </View>
-            )}
+            keyExtractor={(item) => String(item.id)}
+            renderItem={({ item }) => <ListCard data={item.name} />}
           />
         </SafeAreaView>
       </View>
@@ -74,6 +80,4 @@ const styles = StyleSheet.create({
     color: "#8bcf21",
     textAlign: "center",
   },
-  renderView: { flex: 1, backgroundColor: "#fff" },
-  renderText: {},
 });
