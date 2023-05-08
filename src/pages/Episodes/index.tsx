@@ -1,8 +1,39 @@
-import React from "react";
-import { View, Text, StyleSheet, TextInput, SafeAreaView } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  SafeAreaView,
+  FlatList,
+} from "react-native";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
+import { ListCard } from "../../components/ListCard";
+import api from "../../services/api";
+
+interface EpisodeCard {
+  id: number;
+  name: string;
+  air_date: string;
+  episode: string;
+}
 
 export function Episodes() {
+  const [episodes, setEpisodes] = useState<EpisodeCard[]>([]);
+
+  async function getEpisodes() {
+    try {
+      const dataE = await api.get("/episode");
+      setEpisodes(dataE.data.results);
+      console.log(dataE);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getEpisodes();
+  }, []);
   return (
     <DismissKeyboard>
       <View style={styles.container}>
@@ -12,6 +43,11 @@ export function Episodes() {
             placeholder="Encontre o episódio"
             placeholderTextColor="#8bcf21"
             style={styles.inputEpisodes}
+          />
+          <FlatList
+            data={episodes}
+            keyExtractor={(item) => String(item.id)}
+            renderItem={(item) => <ListCard data={item.item.name} />}
           />
         </SafeAreaView>
       </View>
