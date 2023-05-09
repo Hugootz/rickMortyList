@@ -25,7 +25,6 @@ export function Episodes() {
     try {
       const dataE = await api.get("/episode");
       setEpisodes(dataE.data.results);
-      console.log(dataE);
     } catch (error) {
       console.log(error);
     }
@@ -45,9 +44,12 @@ export function Episodes() {
             style={styles.inputEpisodes}
           />
           <FlatList
+            showsVerticalScrollIndicator={false}
             data={episodes}
             keyExtractor={(item) => String(item.id)}
-            renderItem={(item) => <ListCard data={item.item.name} />}
+            renderItem={({ item }) => (
+              <ListCard data={item.name} image={item} />
+            )}
           />
         </SafeAreaView>
       </View>
