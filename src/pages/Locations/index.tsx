@@ -1,8 +1,37 @@
-import React from "react";
-import { View, Text, StyleSheet, TextInput, SafeAreaView } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  SafeAreaView,
+  FlatList,
+} from "react-native";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
+import api from "../../services/api";
+import { ListCard } from "../../components/ListCard";
+
+interface LocationCard {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+}
 
 export function Locations() {
+  const [locations, setLocations] = useState<LocationCard[]>([]);
+  async function getLocation() {
+    try {
+      const dataL = await api.get("/location");
+      setLocations(dataL.data.results);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getLocation();
+  }, []);
   return (
     <DismissKeyboard>
       <View style={styles.container}>
@@ -12,6 +41,14 @@ export function Locations() {
             placeholder="Encontre a localização"
             placeholderTextColor="#8bcf21"
             style={styles.inputLocations}
+          />
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={locations}
+            keyExtractor={(item) => String(item.id)}
+            renderItem={({ item }) => (
+              <ListCard data={item.name} image={item} />
+            )}
           />
         </SafeAreaView>
       </View>
