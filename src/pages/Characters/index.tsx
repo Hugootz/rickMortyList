@@ -15,7 +15,7 @@ interface CharactersCard {
   id: number;
   name: string;
   status: string;
-  species: string;
+  image: number;
 }
 
 export function Characters() {
@@ -45,12 +45,14 @@ export function Characters() {
             style={styles.inputCharacters}
           />
           <FlatList
+            numColumns={2}
+            key={"id"}
             showsVerticalScrollIndicator={false}
-            style={{ marginTop: 35 }}
-            contentContainerStyle={{ marginHorizontal: 20 }}
             data={list}
             keyExtractor={(item) => String(item.id)}
-            renderItem={({ item }) => <ListCard data={item.name} />}
+            renderItem={({ item }) => (
+              <ListCard data={item.name} image={item} />
+            )}
           />
         </SafeAreaView>
       </View>
