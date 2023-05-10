@@ -15,18 +15,20 @@ interface CharactersCard {
   id: number;
   name: string;
   status: string;
-  image: number;
+  image: string;
 }
 
 export function Characters() {
   const [list, setList] = useState<CharactersCard[]>([]);
-
+  const [loading, setLoading] = useState(true);
   async function getCharacters() {
     try {
       const dataC = await api.get("/character");
       setList(dataC.data.results);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -51,7 +53,7 @@ export function Characters() {
             data={list}
             keyExtractor={(item) => String(item.id)}
             renderItem={({ item }) => (
-              <ListCard data={item.name} image={item} />
+              <ListCard data={item.name} image={item.image} />
             )}
           />
         </SafeAreaView>
