@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
 import api from "../../services/api";
-import { ListCard } from "../../components/ListCard";
+import { ListEpisode } from "../../components/ListEpisode";
 
 interface LocationCard {
   id: number;
@@ -43,12 +43,12 @@ export function Locations() {
             style={styles.inputLocations}
           />
           <FlatList
+            key={"3"}
+            numColumns={2}
             showsVerticalScrollIndicator={false}
             data={locations}
             keyExtractor={(item) => String(item.id)}
-            renderItem={({ item }) => (
-              <ListCard data={item.name} image={item} />
-            )}
+            renderItem={({ item }) => <ListEpisode data={item.name} />}
           />
         </SafeAreaView>
       </View>
