@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import * as SplashScreen from "expo-splash-screen";
-import { useFonts, Creepster_400Regular } from "@expo-google-fonts/creepster";
+
 export function Home() {
   return (
     <View style={styles.container}>
