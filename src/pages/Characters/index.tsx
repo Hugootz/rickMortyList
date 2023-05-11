@@ -15,7 +15,7 @@ interface CharactersCard {
   id: number;
   name: string;
   status: string;
-  image: string;
+  image: number;
 }
 
 export function Characters() {
@@ -48,7 +48,7 @@ export function Characters() {
           />
           <FlatList
             numColumns={2}
-            key={"id"}
+            key={"1"}
             showsVerticalScrollIndicator={false}
             data={list}
             keyExtractor={(item) => String(item.id)}
