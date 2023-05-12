@@ -69,11 +69,9 @@ export function AppRoutes() {
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
-              return <Ionicons name="md-location" size={size} color={color} />;
+              return <Ionicons name="planet" size={size} color={color} />;
             }
-            return (
-              <Ionicons name="md-location-outline" size={size} color={color} />
-            );
+            return <Ionicons name="planet-outline" size={size} color={color} />;
           },
         }}
       />
