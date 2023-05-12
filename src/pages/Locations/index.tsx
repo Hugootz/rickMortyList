@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
 import api from "../../services/api";
-import { ListEpisode } from "../../components/ListEpisode";
+import { AnotherList } from "../../components/AnotherList";
 
 interface LocationCard {
   id: number;
@@ -48,7 +48,7 @@ export function Locations() {
             showsVerticalScrollIndicator={false}
             data={locations}
             keyExtractor={(item) => String(item.id)}
-            renderItem={({ item }) => <ListEpisode data={item.name} />}
+            renderItem={({ item }) => <AnotherList data={item.name} />}
           />
         </SafeAreaView>
       </View>
