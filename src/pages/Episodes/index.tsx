@@ -8,7 +8,7 @@ import {
   FlatList,
 } from "react-native";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
-import { ListEpisode } from "../../components/ListEpisode";
+import { AnotherList } from "../../components/AnotherList";
 import api from "../../services/api";
 
 interface EpisodeCard {
@@ -49,7 +49,7 @@ export function Episodes() {
             showsVerticalScrollIndicator={false}
             data={episodes}
             keyExtractor={(item) => String(item.id)}
-            renderItem={({ item }) => <ListEpisode data={item.name} />}
+            renderItem={({ item }) => <AnotherList data={item.name} />}
           />
         </SafeAreaView>
       </View>
