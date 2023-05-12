@@ -14,11 +14,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     top: 10,
-    backgroundColor: "#6f6f6f",
-    borderRadius: 5,
-    margin: 10,
-    padding: 50,
+    backgroundColor: "#202020",
+    borderRadius: 10,
+
+    padding: 16,
   },
-  textList: { color: "#fff", fontWeight: "bold", fontSize: 10 },
-  imageList: { width: 100, height: 100 },
+  textList: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 17,
+    alignSelf: "center",
+    margin: 5,
+  },
+  imageList: { width: 170, height: 170, alignSelf: "center", borderRadius: 10 },
 });
