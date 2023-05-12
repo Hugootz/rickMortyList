@@ -20,11 +20,12 @@ interface CharactersCard {
 
 export function Characters() {
   const [list, setList] = useState<CharactersCard[]>([]);
+  const [seek, setSeek] = useState<CharactersCard[]>([]);
   const [loading, setLoading] = useState(true);
   async function getCharacters() {
     try {
       const dataC = await api.get("/character");
-      setList(dataC.data.results);
+      setSeek(dataC.data.results), setList(dataC.data.results);
     } catch (error) {
       console.log(error);
     } finally {
@@ -35,13 +36,18 @@ export function Characters() {
   useEffect(() => {
     getCharacters();
   }, []);
+  function search(filter) {
+    let arr = JSON.parse(JSON.stringify(seek));
 
+    setList(arr.filter((dice) => dice.name.includes(filter)));
+  }
   return (
     <DismissKeyboard>
       <View style={styles.container}>
         <SafeAreaView>
           <Text style={styles.textCharacters}>Personagens</Text>
           <TextInput
+            onChangeText={(filter) => search(filter)}
             placeholder="Encontre o personagem"
             placeholderTextColor="#8bcf21"
             style={styles.inputCharacters}
