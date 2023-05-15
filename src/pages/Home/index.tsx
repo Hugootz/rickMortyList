@@ -1,7 +1,16 @@
-import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  Modal,
+  TouchableOpacity,
+} from "react-native";
+import { FavoriteModal } from "../../components/FavoriteModal";
 
 export function Home() {
+  const [modal, setModal] = useState(false);
   return (
     <View style={styles.container}>
       <Text style={styles.textHome}>Rick and Morty</Text>
@@ -9,11 +18,15 @@ export function Home() {
         source={require("../../assets/rick-and-morty-falling-portal-to-portal-carter-briar-transparent.png")}
         style={{ width: "70%", height: "50%" }}
       />
+
       <View style={styles.buttonView}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => setModal(true)}>
           <Text style={styles.buttonText}> favoritos </Text>
         </TouchableOpacity>
       </View>
+      <Modal visible={modal} onRequestClose={() => setModal(false)}>
+        <FavoriteModal />
+      </Modal>
     </View>
   );
 }
