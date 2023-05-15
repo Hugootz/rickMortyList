@@ -20,13 +20,15 @@ interface EpisodeCard {
 
 export function Episodes() {
   const [episodes, setEpisodes] = useState<EpisodeCard[]>([]);
-
+  const [loading, setLoading] = useState(true);
   async function getEpisodes() {
     try {
       const dataE = await api.get("/episode");
       setEpisodes(dataE.data.results);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
