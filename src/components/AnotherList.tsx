@@ -13,10 +13,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     top: 10,
-    backgroundColor: "#6f6f6f",
+    backgroundColor: "#202020",
     borderRadius: 5,
     margin: 10,
-    padding: 50,
+    padding: 31,
+    paddingHorizontal: 10,
+    alignItems: "center",
+    justifyContent: "center",
+
+    borderWidth: 3,
+    borderColor: "#8bcf21",
   },
-  textList: { color: "#fff", fontWeight: "bold", fontSize: 10 },
+  textList: {
+    color: "#8bcf21",
+    fontWeight: "bold",
+    fontSize: 15,
+  },
 });
