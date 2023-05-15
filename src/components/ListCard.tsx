@@ -16,8 +16,7 @@ const styles = StyleSheet.create({
     top: 10,
     backgroundColor: "#202020",
     borderRadius: 10,
-
-    padding: 16,
+    padding: 12,
   },
   textList: {
     color: "#fff",
@@ -26,5 +25,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     margin: 5,
   },
-  imageList: { width: 170, height: 170, alignSelf: "center", borderRadius: 10 },
+  imageList: {
+    width: 170,
+    height: 170,
+    alignSelf: "center",
+    borderRadius: 10,
+  },
 });
