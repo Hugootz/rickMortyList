@@ -7,6 +7,7 @@ import {
   FlatList,
   SafeAreaView,
 } from "react-native";
+
 import api from "../../services/api";
 import { ListCard } from "../../components/ListCard";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
@@ -41,6 +42,7 @@ export function Characters() {
 
     setList(arr.filter((dice) => dice.name.includes(filter)));
   }
+
   return (
     <DismissKeyboard>
       <View style={styles.container}>
