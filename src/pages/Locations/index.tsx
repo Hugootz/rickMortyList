@@ -20,24 +20,35 @@ interface LocationCard {
 
 export function Locations() {
   const [locations, setLocations] = useState<LocationCard[]>([]);
+  const [seek, setSeek] = useState<LocationCard[]>([]);
+  const [loading, setLoading] = useState(true);
   async function getLocation() {
     try {
       const dataL = await api.get("/location");
-      setLocations(dataL.data.results);
+      setSeek(dataL.data.results), setLocations(dataL.data.results);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
   useEffect(() => {
     getLocation();
   }, []);
+  function search(filter) {
+    let arr = JSON.parse(JSON.stringify(seek));
+
+    setLocations(arr.filter((dice) => dice.name.includes(filter)));
+  }
+
   return (
     <DismissKeyboard>
       <View style={styles.container}>
         <SafeAreaView>
           <Text style={styles.textLocations}>Localizações</Text>
           <TextInput
+            onChangeText={(filter) => search(filter)}
             placeholder="Encontre a localização"
             placeholderTextColor="#8bcf21"
             style={styles.inputLocations}
