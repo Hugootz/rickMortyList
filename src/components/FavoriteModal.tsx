@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#3f3f3f",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    elevation: 50,
+    elevation: 80,
   },
   icon: { alignSelf: "center", top: -40, right: 20 },
   modalText: {
