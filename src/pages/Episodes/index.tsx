@@ -20,11 +20,12 @@ interface EpisodeCard {
 
 export function Episodes() {
   const [episodes, setEpisodes] = useState<EpisodeCard[]>([]);
+  const [seek, setSeek] = useState<EpisodeCard[]>([]);
   const [loading, setLoading] = useState(true);
   async function getEpisodes() {
     try {
       const dataE = await api.get("/episode");
-      setEpisodes(dataE.data.results);
+      setSeek(dataE.data.results), setEpisodes(dataE.data.results);
     } catch (error) {
       console.log(error);
     } finally {
@@ -35,12 +36,19 @@ export function Episodes() {
   useEffect(() => {
     getEpisodes();
   }, []);
+  function search(filter) {
+    let arr = JSON.parse(JSON.stringify(seek));
+
+    setEpisodes(arr.filter((dice) => dice.name.includes(filter)));
+  }
+
   return (
     <DismissKeyboard>
       <View style={styles.container}>
         <SafeAreaView>
           <Text style={styles.textEpisodes}>Episódios</Text>
           <TextInput
+            onChangeText={(filter) => search(filter)}
             placeholder="Encontre o episódio"
             placeholderTextColor="#8bcf21"
             style={styles.inputEpisodes}
