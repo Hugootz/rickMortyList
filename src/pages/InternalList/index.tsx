@@ -3,9 +3,11 @@ import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 
 export function InternalList() {
   return (
-    <View style={styles.container}>
-      <Text>Internal List</Text>
-    </View>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <Text>Internal List</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 
