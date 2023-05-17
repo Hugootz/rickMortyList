@@ -5,16 +5,15 @@ import { Episodes } from "../pages/Episodes";
 import { Characters } from "../pages/Characters";
 import { Locations } from "../pages/Locations";
 import { Home } from "../pages/Home";
+import { InternalList } from "../pages/InternalList/index";
 import { Ionicons } from "@expo/vector-icons";
 
-const stack = createStackNavigator();
+const Stack = createStackNavigator();
 function MyStack() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Notifications" component={Notifications} />
-      <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name="Settings" component={Settings} />
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="HomeScreen" component={Home} />
+      <Stack.Screen name="InternalList" component={InternalList} />
     </Stack.Navigator>
   );
 }
@@ -41,7 +40,7 @@ export function AppRoutes() {
     >
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={MyStack}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
