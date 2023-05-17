@@ -1,13 +1,25 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { Episodes } from "../pages/Episodes";
 import { Characters } from "../pages/Characters";
 import { Locations } from "../pages/Locations";
 import { Home } from "../pages/Home";
 import { Ionicons } from "@expo/vector-icons";
 
-const Tab = createBottomTabNavigator();
+const stack = createStackNavigator();
+function MyStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Notifications" component={Notifications} />
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Settings" component={Settings} />
+    </Stack.Navigator>
+  );
+}
 
+const Tab = createBottomTabNavigator();
 export function AppRoutes() {
   return (
     <Tab.Navigator
