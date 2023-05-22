@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
-export function ListCard({ data, image }) {
+export function ListCard({ data, image, onPress }) {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <Image style={styles.imageList} source={{ uri: image }} />
       <Text style={styles.textList}>{data}</Text>
     </TouchableOpacity>
