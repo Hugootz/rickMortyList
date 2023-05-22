@@ -10,6 +10,7 @@ import {
 import { DismissKeyboard } from "../../components/DismissKeyboard";
 import { AnotherList } from "../../components/AnotherList";
 import api from "../../services/api";
+import { useNavigation } from "@react-navigation/native";
 
 interface EpisodeCard {
   id: number;
@@ -41,7 +42,7 @@ export function Episodes() {
 
     setEpisodes(arr.filter((dice) => dice.name.includes(filter)));
   }
-
+  const navigation = useNavigation();
   return (
     <DismissKeyboard>
       <View style={styles.container}>
@@ -59,7 +60,14 @@ export function Episodes() {
             showsVerticalScrollIndicator={false}
             data={episodes}
             keyExtractor={(item) => String(item.id)}
-            renderItem={({ item }) => <AnotherList data={item.name} />}
+            renderItem={({ item }) => (
+              <AnotherList
+                onPress={() => {
+                  navigation.navigate("EpisodeList");
+                }}
+                data={item.name}
+              />
+            )}
           />
         </SafeAreaView>
       </View>
