@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  SafeAreaView,
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { SafeAreaView, View, Text, StyleSheet } from "react-native";
 import { Octicons } from "@expo/vector-icons";
 
 export function FavoriteModal() {
