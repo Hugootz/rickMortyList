@@ -10,6 +10,7 @@ import {
 import { DismissKeyboard } from "../../components/DismissKeyboard";
 import api from "../../services/api";
 import { AnotherList } from "../../components/AnotherList";
+import { useNavigation } from "@react-navigation/native";
 
 interface LocationCard {
   id: number;
@@ -41,7 +42,7 @@ export function Locations() {
 
     setLocations(arr.filter((dice) => dice.name.includes(filter)));
   }
-
+  const navigation = useNavigation();
   return (
     <DismissKeyboard>
       <View style={styles.container}>
@@ -59,7 +60,14 @@ export function Locations() {
             showsVerticalScrollIndicator={false}
             data={locations}
             keyExtractor={(item) => String(item.id)}
-            renderItem={({ item }) => <AnotherList data={item.name} />}
+            renderItem={({ item }) => (
+              <AnotherList
+                onPress={() => {
+                  navigation.navigate("LocationList");
+                }}
+                data={item.name}
+              />
+            )}
           />
         </SafeAreaView>
       </View>
