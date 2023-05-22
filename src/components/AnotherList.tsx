@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, StyleSheet, TouchableOpacity } from "react-native";
 
-export function AnotherList({ data }) {
+export function AnotherList({ data, onPress }) {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <Text style={styles.textList}>{data}</Text>
     </TouchableOpacity>
   );
