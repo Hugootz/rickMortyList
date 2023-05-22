@@ -5,21 +5,40 @@ import { Episodes } from "../pages/Episodes";
 import { Characters } from "../pages/Characters";
 import { Locations } from "../pages/Locations";
 import { Home } from "../pages/Home";
-import { InternalList } from "../pages/InternalList/index";
+import { InternalList } from "../pages/Characters/CharactersList";
 import { Ionicons } from "@expo/vector-icons";
+import { EpisodeList } from "../pages/Episodes/EpisodeList";
+import { LocationList } from "../pages/Locations/LocationList";
 
-const Stack = createStackNavigator();
-function MyStack() {
+export function MyStack() {
+  const Stack = createStackNavigator();
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="HomeScreen" component={Home} />
+    <Stack.Navigator screenOptions={{ headerShown: true }}>
+      <Stack.Screen name="CharactersScreen" component={Characters} />
       <Stack.Screen name="InternalList" component={InternalList} />
     </Stack.Navigator>
   );
 }
-
-const Tab = createBottomTabNavigator();
+export function EpisodeStack() {
+  const Stack = createStackNavigator();
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="EpisodeScreen" component={Episodes} />
+      <Stack.Screen name="EpisodeList" component={EpisodeList} />
+    </Stack.Navigator>
+  );
+}
+export function LocationStack() {
+  const Stack = createStackNavigator();
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="LocationScreen" component={Locations} />
+      <Stack.Screen name="LocationList" component={LocationList} />
+    </Stack.Navigator>
+  );
+}
 export function AppRoutes() {
+  const Tab = createBottomTabNavigator();
   return (
     <Tab.Navigator
       screenOptions={{
@@ -40,7 +59,7 @@ export function AppRoutes() {
     >
       <Tab.Screen
         name="Home"
-        component={MyStack}
+        component={Home}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
@@ -52,7 +71,7 @@ export function AppRoutes() {
       />
       <Tab.Screen
         name="Characters"
-        component={Characters}
+        component={MyStack}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
@@ -64,7 +83,7 @@ export function AppRoutes() {
       />
       <Tab.Screen
         name="Episodes"
-        component={Episodes}
+        component={EpisodeStack}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
@@ -76,7 +95,7 @@ export function AppRoutes() {
       />
       <Tab.Screen
         name="Locations"
-        component={Locations}
+        component={LocationStack}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
