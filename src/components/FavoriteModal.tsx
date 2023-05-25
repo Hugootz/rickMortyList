@@ -1,5 +1,11 @@
 import React from "react";
-import { SafeAreaView, View, Text, StyleSheet } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { Octicons } from "@expo/vector-icons";
 
 export function FavoriteModal() {
@@ -27,24 +33,23 @@ const styles = StyleSheet.create({
     backgroundColor: "#202020",
     textAlign: "center",
   },
-
   content: {
     flex: 1,
     backgroundColor: "#202020",
   },
   iconView: {
-    flex: 5,
+    flex: 7,
     backgroundColor: "#3f3f3f",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    elevation: 80,
+    elevation: 100,
   },
-  icon: { alignSelf: "center", top: -40, right: 20 },
+  icon: { alignSelf: "center", top: -45, right: 25 },
   modalText: {
     color: "#8bcf21",
     fontFamily: "Creepster_400Regular",
     fontSize: 35,
-    top: 75,
+    top: 38,
     margin: 10,
   },
 });
