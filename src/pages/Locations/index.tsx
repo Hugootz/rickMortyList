@@ -11,6 +11,13 @@ import { DismissKeyboard } from "../../components/DismissKeyboard";
 import api from "../../services/api";
 import { AnotherList } from "../../components/AnotherList";
 import { useNavigation } from "@react-navigation/native";
+import { RootStackParamsList } from "../../Routes/app.Routes";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type LocationScreen = NativeStackNavigationProp<
+  RootStackParamsList,
+  "Locations"
+>;
 
 interface LocationCard {
   id: number;
@@ -42,7 +49,7 @@ export function Locations() {
 
     setLocations(arr.filter((dice) => dice.name.includes(filter)));
   }
-  const navigation = useNavigation();
+  const navigation = useNavigation<LocationScreen>();
   return (
     <DismissKeyboard>
       <View style={styles.container}>
@@ -93,7 +100,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#3f3f3f",
     paddingHorizontal: 80,
     borderRadius: 10,
-    elevation: 20,
+    elevation: 80,
     color: "#8bcf21",
     textAlign: "center",
   },
