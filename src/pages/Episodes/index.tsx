@@ -11,6 +11,10 @@ import { DismissKeyboard } from "../../components/DismissKeyboard";
 import { AnotherList } from "../../components/AnotherList";
 import api from "../../services/api";
 import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamsList } from "../../Routes/app.Routes";
+
+type EpisodeScreen = NativeStackNavigationProp<RootStackParamsList, "Episodes">;
 
 interface EpisodeCard {
   id: number;
@@ -42,7 +46,7 @@ export function Episodes() {
 
     setEpisodes(arr.filter((dice) => dice.name.includes(filter)));
   }
-  const navigation = useNavigation();
+  const navigation = useNavigation<EpisodeScreen>();
   return (
     <DismissKeyboard>
       <View style={styles.container}>
@@ -93,7 +97,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#3f3f3f",
     paddingHorizontal: 80,
     borderRadius: 10,
-    elevation: 20,
+    elevation: 80,
     color: "#8bcf21",
     textAlign: "center",
   },
