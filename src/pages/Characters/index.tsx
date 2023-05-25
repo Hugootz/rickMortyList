@@ -7,12 +7,17 @@ import {
   FlatList,
   SafeAreaView,
 } from "react-native";
-
 import { useNavigation } from "@react-navigation/native";
-
 import api from "../../services/api";
 import { ListCard } from "../../components/ListCard";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamsList } from "../../Routes/app.Routes";
+
+type CharactersScreen = NativeStackNavigationProp<
+  RootStackParamsList,
+  "Characters"
+>;
 
 interface CharactersCard {
   id: number;
@@ -44,7 +49,7 @@ export function Characters() {
 
     setList(arr.filter((dice) => dice.name.includes(filter)));
   }
-  const navigation = useNavigation();
+  const navigation = useNavigation<CharactersScreen>();
 
   return (
     <DismissKeyboard>
@@ -67,7 +72,7 @@ export function Characters() {
               <ListCard
                 data={item.name}
                 image={item.image}
-                onPress={() => navigation.navigate("InternalList")}
+                onPress={() => navigation.navigate("CharactersList")}
               />
             )}
           />
@@ -95,7 +100,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#3f3f3f",
     paddingHorizontal: 70,
     borderRadius: 10,
-    elevation: 20,
+    elevation: 80,
     color: "#8bcf21",
     textAlign: "center",
   },
