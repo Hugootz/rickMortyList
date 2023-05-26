@@ -14,7 +14,7 @@ export type RootStackParamsList = {
   Episodes: undefined;
   EpisodeList: undefined;
   Characters: undefined;
-  CharactersList: undefined;
+  CharactersList: any;
   Locations: undefined;
   LocationList: undefined;
 };
