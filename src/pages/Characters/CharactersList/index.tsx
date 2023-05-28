@@ -1,28 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
   SafeAreaView,
   StyleSheet,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import api from "../../../services/api";
-import { InternalListCard } from "../../../components/InternalListcard";
+import { useRoute } from "@react-navigation/native";
+import { CharactersCard } from "../../Characters";
 
-interface CharactersListCard {
-  name: string;
-  status: string;
-  species: string;
-  gender: string;
+interface Params {
+  id: CharactersCard;
 }
 
 export function CharactersList({ navigation }) {
-  const [Characters, setCharacters] = useState<CharactersListCard[]>([]);
-  const [load, setLoad] = useState(true);
-  const apiList = async () => {
-    const apiResponse = await api.get("/character");
-  };
+  const route = useRoute();
+  const { id } = route.params as Params;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -33,7 +29,8 @@ export function CharactersList({ navigation }) {
         <Entypo name="back" size={35} color="#8bcf21" />
       </TouchableOpacity>
       <View style={styles.charactersView}>
-        <InternalListCard />
+        <Image source={{}} />
+        <Text></Text>
       </View>
     </SafeAreaView>
   );
