@@ -19,10 +19,12 @@ type CharactersScreen = NativeStackNavigationProp<
   "Characters"
 >;
 
-interface CharactersCard {
+export interface CharactersCard {
   id: number;
   name: string;
   status: string;
+  species: string;
+  gender: string;
   image: number;
 }
 
@@ -40,7 +42,6 @@ export function Characters() {
       setLoading(false);
     }
   }
-
   useEffect(() => {
     getCharacters();
   }, []);
@@ -50,7 +51,9 @@ export function Characters() {
     setList(arr.filter((dice) => dice.name.includes(filter)));
   }
   const navigation = useNavigation<CharactersScreen>();
-
+  function handleList(character: CharactersCard) {
+    navigation.navigate("CharactersList", { character });
+  }
   return (
     <DismissKeyboard>
       <View style={styles.container}>
@@ -72,7 +75,7 @@ export function Characters() {
               <ListCard
                 data={item.name}
                 image={item.image}
-                onPress={() => navigation.navigate("CharactersList")}
+                onPress={() => handleList(item)}
               />
             )}
           />
