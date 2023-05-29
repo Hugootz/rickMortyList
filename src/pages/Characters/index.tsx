@@ -25,7 +25,7 @@ export interface CharactersCard {
   status: string;
   species: string;
   gender: string;
-  image: number;
+  image: string;
 }
 
 export function Characters() {
