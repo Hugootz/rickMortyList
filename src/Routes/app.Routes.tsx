@@ -13,7 +13,7 @@ import { LocationList } from "../pages/Locations/LocationList";
 export type RootStackParamsList = {
   Episodes: undefined;
   EpisodeList: undefined;
-  Characters: undefined;
+  Characters: any;
   CharactersList: any;
   Locations: undefined;
   LocationList: undefined;
