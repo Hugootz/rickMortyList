@@ -8,7 +8,7 @@ import {
   Image,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import api from "../../../services/api";
+
 import { useRoute } from "@react-navigation/native";
 import { CharactersCard } from "../../Characters";
 
@@ -37,10 +37,12 @@ export function CharactersList({ navigation }) {
           <Text style={styles.rickText}>{character.name}</Text>
         </View>
         <View style={styles.rickInfo}>
-          <Text>{character.id}</Text>
-          <Text>{character.status}</Text>
-          <Text>{character.species}</Text>
-          <Text>{character.gender}</Text>
+          <Text style={styles.textId}>{`Id: ${character.id}`}</Text>
+          <Text style={styles.textStatus}>{`Status: ${character.status}`}</Text>
+          <Text
+            style={styles.textSpecies}
+          >{`Species: ${character.species}`}</Text>
+          <Text style={styles.textGender}>{`Gender: ${character.gender}`}</Text>
         </View>
       </View>
     </SafeAreaView>
@@ -79,6 +81,42 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  rickInfo: { alignSelf: "center", top: 200 },
+  rickInfo: {
+    top: 200,
+    width: 250,
+    height: 250,
+    backgroundColor: "#232323",
+    borderRadius: 30,
+    justifyContent: "center",
+    margin: 10,
+  },
+  textId: {
+    color: "#8bcf21",
+    alignSelf: "center",
+    padding: 5,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  textStatus: {
+    color: "#8bcf21",
+    alignSelf: "center",
+    padding: 5,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  textSpecies: {
+    color: "#8bcf21",
+    alignSelf: "center",
+    padding: 5,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  textGender: {
+    color: "#8bcf21",
+    alignSelf: "center",
+    padding: 5,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
   charactersText: { color: "#8bcf21", top: 80, alignSelf: "center" },
 });
