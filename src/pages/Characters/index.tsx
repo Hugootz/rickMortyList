@@ -17,7 +17,8 @@ import { RootStackParamsList } from "../../Routes/app.Routes";
 type CharactersScreen = NativeStackNavigationProp<
   RootStackParamsList,
   "Characters"
->;
+>; // importação das tipagem, passando o 'nativestacknavigationprop' listando as propriedades de cada tela
+//    e passando o 'type' que foi importado de 'routes', tendo que passar a tela em que está como parâmetro!
 
 export interface CharactersCard {
   id: number;
@@ -51,6 +52,9 @@ export function Characters() {
     setList(arr.filter((dice) => dice.name.includes(filter)));
   }
   const navigation = useNavigation<CharactersScreen>();
+  // Agora é só tipar o seu hook de navegação e pronto!
+  // seu erro de tipagem irá sumir! :)
+
   function handleList(character: CharactersCard) {
     navigation.navigate("CharactersList", { character });
   }
