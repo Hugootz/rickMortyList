@@ -17,7 +17,8 @@ export type RootStackParamsList = {
   CharactersList: any;
   Locations: undefined;
   LocationList: undefined;
-};
+}; // tipagem das rotas de tab e stack navigation, coloquei 'any' para rotas com parâmetros
+//    e 'undefined' para rotas sem parâmetros!
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
