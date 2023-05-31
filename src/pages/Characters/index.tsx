@@ -55,7 +55,7 @@ export function Characters() {
   // Agora é só tipar o seu hook de navegação e pronto!
   // seu erro de tipagem irá sumir! :)
 
-  function handleList(character: CharactersCard) {
+  function handleCharactersList(character: CharactersCard) {
     navigation.navigate("CharactersList", { character });
   }
   return (
@@ -79,7 +79,7 @@ export function Characters() {
               <ListCard
                 data={item.name}
                 image={item.image}
-                onPress={() => handleList(item)}
+                onPress={() => handleCharactersList(item)}
               />
             )}
           />
