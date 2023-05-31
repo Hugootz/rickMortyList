@@ -19,7 +19,7 @@ type LocationScreen = NativeStackNavigationProp<
   "Locations"
 >;
 
-interface LocationCard {
+export interface LocationCard {
   id: number;
   name: string;
   type: string;
@@ -50,6 +50,9 @@ export function Locations() {
     setLocations(arr.filter((dice) => dice.name.includes(filter)));
   }
   const navigation = useNavigation<LocationScreen>();
+  function handleLocationList(location: LocationCard) {
+    navigation.navigate("LocationList", { location });
+  }
   return (
     <DismissKeyboard>
       <View style={styles.container}>
@@ -69,9 +72,7 @@ export function Locations() {
             keyExtractor={(item) => String(item.id)}
             renderItem={({ item }) => (
               <AnotherList
-                onPress={() => {
-                  navigation.navigate("LocationList");
-                }}
+                onPress={() => handleLocationList(item)}
                 data={item.name}
               />
             )}
