@@ -11,12 +11,12 @@ import { EpisodeList } from "../pages/Episodes/EpisodeList";
 import { LocationList } from "../pages/Locations/LocationList";
 
 export type RootStackParamsList = {
-  Episodes: undefined;
-  EpisodeList: undefined;
+  Episodes: any;
+  EpisodeList: any;
   Characters: any;
   CharactersList: any;
-  Locations: undefined;
-  LocationList: undefined;
+  Locations: any;
+  LocationList: any;
 }; // tipagem das rotas de tab e stack navigation, coloquei 'any' para rotas com parâmetros
 //    e 'undefined' para rotas sem parâmetros!
 
