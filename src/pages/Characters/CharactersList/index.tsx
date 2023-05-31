@@ -36,6 +36,9 @@ export function CharactersList({ navigation }) {
           />
           <Text style={styles.rickText}>{character.name}</Text>
         </View>
+        <View style={styles.infoView}>
+          <Text style={styles.charactersInfo}>Information of characters</Text>
+        </View>
         <View style={styles.rickInfo}>
           <Text style={styles.textId}>{`Id: ${character.id}`}</Text>
           <Text style={styles.textStatus}>{`Status: ${character.status}`}</Text>
@@ -81,13 +84,30 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderRadius: 25,
-    borderWidth: 3,
+    borderWidth: 2,
     borderColor: "#8bcf21",
   },
   rickText: {
     color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
+  },
+  infoView: {
+    width: 300,
+    height: 50,
+    backgroundColor: "#232323",
+    top: 180,
+    justifyContent: "center",
+    borderRadius: 28,
+    borderWidth: 2,
+    borderColor: "#8bcf21",
+  },
+
+  charactersInfo: {
+    color: "#8bcf21",
+    textAlign: "center",
+    fontSize: 20,
+    fontFamily: "Creepster_400Regular",
   },
   rickInfo: {
     top: 200,
@@ -128,5 +148,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  charactersText: { color: "#8bcf21", top: 80, alignSelf: "center" },
 });
