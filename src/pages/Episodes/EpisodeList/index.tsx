@@ -34,11 +34,13 @@ export function EpisodeList({ navigation }) {
           <Text style={styles.infoText}>Information of episodes</Text>
         </View>
         <View style={styles.episodeStyle}>
-          <Text style={styles.episodeText}>{`Id: ${episode.id}`}</Text>
+          <Text style={styles.episodeTitle}>{`Id: ${episode.id}`}</Text>
           <Text
             style={styles.episodeTitle}
           >{`Season/Episode: ${episode.episode}`}</Text>
-          <Text style={styles.episodeDate}>{` Date: ${episode.air_date}`}</Text>
+          <Text
+            style={styles.episodeTitle}
+          >{` Date: ${episode.air_date}`}</Text>
         </View>
       </View>
     </SafeAreaView>
@@ -109,21 +111,8 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: "#8bcf21",
   },
-  episodeText: {
-    color: "#8bcf21",
-    alignSelf: "center",
-    padding: 10,
-    fontSize: 18,
-    fontWeight: "bold",
-  },
+
   episodeTitle: {
-    color: "#8bcf21",
-    alignSelf: "center",
-    padding: 10,
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  episodeDate: {
     color: "#8bcf21",
     alignSelf: "center",
     padding: 10,
