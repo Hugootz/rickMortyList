@@ -30,9 +30,14 @@ export function LocationList({ navigation }) {
         <Text style={styles.locationName}>{location.name}</Text>
       </View>
       <View style={styles.locationView}>
-        <Text style={styles.locationText}>{location.id}</Text>
-        <Text style={styles.locationText}>{location.type}</Text>
-        <Text style={styles.locationText}>{location.dimension}</Text>
+        <View style={styles.locationInfo}>
+          <Text style={styles.infoTextLocation}>Information of locations</Text>
+        </View>
+        <View style={styles.locationStyle}>
+          <Text style={styles.locationText}>{`Id: ${location.id}`}</Text>
+          <Text style={styles.locationText}>{`Type: ${location.type}`}</Text>
+          <Text style={styles.locationText}>{location.dimension}</Text>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -67,6 +72,44 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     elevation: 80,
+    borderWidth: 3,
+    borderColor: "#8bcf21",
   },
-  locationText: { color: "#8bcf21", top: 80, alignSelf: "center" },
+  locationInfo: {
+    top: "15%",
+    width: 300,
+    height: 50,
+    backgroundColor: "#202020",
+    justifyContent: "center",
+    alignSelf: "center",
+    borderRadius: 28,
+    borderWidth: 2,
+    borderColor: "#8bcf21",
+  },
+  infoTextLocation: {
+    color: "#8bcf21",
+    alignSelf: "center",
+    fontSize: 20,
+    fontFamily: "Creepster_400Regular",
+  },
+
+  locationStyle: {
+    top: "35%",
+    width: 280,
+    height: 200,
+    backgroundColor: "#202020",
+    position: "absolute",
+    alignSelf: "center",
+    justifyContent: "center",
+    borderRadius: 30,
+    borderWidth: 3,
+    borderColor: "#8bcf21",
+  },
+  locationText: {
+    color: "#8bcf21",
+    alignSelf: "center",
+    fontWeight: "bold",
+    padding: 5,
+    fontSize: 18,
+  },
 });
