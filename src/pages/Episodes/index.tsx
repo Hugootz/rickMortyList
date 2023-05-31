@@ -16,7 +16,7 @@ import { RootStackParamsList } from "../../Routes/app.Routes";
 
 type EpisodeScreen = NativeStackNavigationProp<RootStackParamsList, "Episodes">;
 
-interface EpisodeCard {
+export interface EpisodeCard {
   id: number;
   name: string;
   air_date: string;
@@ -47,6 +47,9 @@ export function Episodes() {
     setEpisodes(arr.filter((dice) => dice.name.includes(filter)));
   }
   const navigation = useNavigation<EpisodeScreen>();
+  function handleEpisodeList(episode: EpisodeCard) {
+    navigation.navigate("EpisodeList", { episode });
+  }
   return (
     <DismissKeyboard>
       <View style={styles.container}>
@@ -66,9 +69,7 @@ export function Episodes() {
             keyExtractor={(item) => String(item.id)}
             renderItem={({ item }) => (
               <AnotherList
-                onPress={() => {
-                  navigation.navigate("EpisodeList");
-                }}
+                onPress={() => handleEpisodeList(item)}
                 data={item.name}
               />
             )}
