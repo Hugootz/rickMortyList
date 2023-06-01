@@ -9,6 +9,7 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
 import { LocationCard } from "../../Locations";
+import { Octicons } from "@expo/vector-icons";
 
 interface Params {
   location: LocationCard;
@@ -32,6 +33,14 @@ export function LocationList({ navigation }) {
       <View style={styles.locationView}>
         <View style={styles.locationInfo}>
           <Text style={styles.infoTextLocation}>Information of locations</Text>
+          <TouchableOpacity>
+            <Octicons
+              style={styles.iconLocation}
+              name="feed-star"
+              size={28}
+              color="#8bcf21"
+            />
+          </TouchableOpacity>
         </View>
         <View style={styles.locationStyle}>
           <Text style={styles.locationText}>{`Id: ${location.id}`}</Text>
@@ -85,6 +94,7 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     borderWidth: 2,
     borderColor: "#8bcf21",
+    flexDirection: "row",
   },
   infoTextLocation: {
     color: "#8bcf21",
@@ -92,6 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: "Creepster_400Regular",
   },
+  iconLocation: { padding: 8, left: 2 },
 
   locationStyle: {
     top: "35%",
