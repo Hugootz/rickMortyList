@@ -11,6 +11,7 @@ import { Entypo } from "@expo/vector-icons";
 
 import { useRoute } from "@react-navigation/native";
 import { CharactersCard } from "../../Characters";
+import { Octicons } from "@expo/vector-icons";
 
 interface Params {
   character: CharactersCard;
@@ -34,7 +35,17 @@ export function CharactersList({ navigation }) {
             style={styles.characterImage}
             source={{ uri: character.image }}
           />
-          <Text style={styles.rickText}>{character.name}</Text>
+          <View style={styles.alignView}>
+            <Text style={styles.rickText}>{character.name}</Text>
+            <TouchableOpacity>
+              <Octicons
+                style={styles.icon}
+                name="feed-star"
+                size={28}
+                color="#8bcf21"
+              />
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.infoView}>
           <Text style={styles.charactersInfo}>Information of characters</Text>
@@ -80,6 +91,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     elevation: 50,
   },
+  alignView: { flexDirection: "row", left: 5 },
   characterImage: {
     width: 200,
     height: 200,
@@ -91,7 +103,9 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
+    paddingTop: 5,
   },
+  icon: { padding: 7 },
   infoView: {
     width: 300,
     height: 50,
