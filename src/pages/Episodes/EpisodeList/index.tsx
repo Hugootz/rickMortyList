@@ -9,6 +9,7 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
 import { EpisodeCard } from "../../Episodes";
+import { Octicons } from "@expo/vector-icons";
 
 interface Params {
   episode: EpisodeCard;
@@ -32,6 +33,14 @@ export function EpisodeList({ navigation }) {
       <View style={styles.episodeView}>
         <View style={styles.episodeInfo}>
           <Text style={styles.infoText}>Information of episodes</Text>
+          <TouchableOpacity>
+            <Octicons
+              style={styles.iconEpisode}
+              name="feed-star"
+              size={27}
+              color="#8bcf21"
+            />
+          </TouchableOpacity>
         </View>
         <View style={styles.episodeStyle}>
           <Text style={styles.episodeTitle}>{`Id: ${episode.id}`}</Text>
@@ -83,6 +92,7 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     borderWidth: 2,
     borderColor: "#8bcf21",
+    flexDirection: "row",
   },
   infoText: {
     color: "#8bcf21",
@@ -90,6 +100,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: "Creepster_400Regular",
   },
+  iconEpisode: { padding: 8, top: 1, left: 5 },
   episodeView: {
     flex: 2,
     backgroundColor: "#3f3f3f",
