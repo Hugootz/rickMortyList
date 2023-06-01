@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  SafeAreaView,
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { SafeAreaView, View, Text, StyleSheet } from "react-native";
 import { Octicons } from "@expo/vector-icons";
 
 export function FavoriteModal() {
@@ -43,6 +37,8 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     elevation: 100,
+    borderWidth: 3,
+    borderColor: "#8bcf21",
   },
   icon: { alignSelf: "center", top: -45, right: 25 },
   modalText: {
