@@ -13,6 +13,7 @@ import { ListCard } from "../../components/ListCard";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamsList } from "../../Routes/app.Routes";
+import * as Animatable from "react-native-animatable";
 
 type CharactersScreen = NativeStackNavigationProp<
   RootStackParamsList,
@@ -62,7 +63,12 @@ export function Characters() {
     <DismissKeyboard>
       <View style={styles.container}>
         <SafeAreaView>
-          <Text style={styles.textCharacters}>Personagens</Text>
+          <Animatable.Text
+            animation={"slideInDown"}
+            style={styles.textCharacters}
+          >
+            Personagens
+          </Animatable.Text>
           <TextInput
             onChangeText={(filter) => search(filter)}
             placeholder="Encontre o personagem"
