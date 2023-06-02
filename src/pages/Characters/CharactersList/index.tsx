@@ -37,18 +37,18 @@ export function CharactersList({ navigation }) {
           />
           <View style={styles.alignView}>
             <Text style={styles.rickText}>{character.name}</Text>
-            <TouchableOpacity>
-              <Octicons
-                style={styles.icon}
-                name="feed-star"
-                size={28}
-                color="#8bcf21"
-              />
-            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.infoView}>
           <Text style={styles.charactersInfo}>Information of characters</Text>
+          <TouchableOpacity>
+            <Octicons
+              style={styles.icon}
+              name="feed-star"
+              size={27}
+              color="#8bcf21"
+            />
+          </TouchableOpacity>
         </View>
         <View style={styles.rickInfo}>
           <Text style={styles.textId}>{`Id: ${character.id}`}</Text>
@@ -105,9 +105,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingTop: 5,
   },
-  icon: { padding: 7 },
+  icon: { padding: 8, left: 2 },
   infoView: {
-    width: 300,
+    width: 320,
     height: 50,
     backgroundColor: "#232323",
     top: 180,
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     borderWidth: 2,
     borderColor: "#8bcf21",
+    flexDirection: "row",
   },
 
   charactersInfo: {
@@ -122,6 +123,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 20,
     fontFamily: "Creepster_400Regular",
+    top: 9,
   },
   rickInfo: {
     top: 200,
