@@ -13,6 +13,7 @@ import { AnotherList } from "../../components/AnotherList";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamsList } from "../../Routes/app.Routes";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import * as Animatable from "react-native-animatable";
 
 type LocationScreen = NativeStackNavigationProp<
   RootStackParamsList,
@@ -57,7 +58,12 @@ export function Locations() {
     <DismissKeyboard>
       <View style={styles.container}>
         <SafeAreaView>
-          <Text style={styles.textLocations}>Localizações</Text>
+          <Animatable.Text
+            animation={"slideInDown"}
+            style={styles.textLocations}
+          >
+            Localizações
+          </Animatable.Text>
           <TextInput
             onChangeText={(filter) => search(filter)}
             placeholder="Encontre a localização"
