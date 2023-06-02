@@ -8,13 +8,21 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { FavoriteModal } from "../../components/FavoriteModal";
-
+import * as Animatable from "react-native-animatable";
 export function Home() {
   const [modal, setModal] = useState(false);
   return (
     <View style={styles.container}>
-      <Text style={styles.textHome}>Rick and Morty</Text>
-      <Image
+      <Animatable.Text
+        delay={400}
+        animation={"lightSpeedIn"}
+        style={styles.textHome}
+      >
+        Rick and Morty
+      </Animatable.Text>
+      <Animatable.Image
+        delay={500}
+        animation={"zoomIn"}
         source={require("../../assets/rick-and-morty-falling-portal-to-portal-carter-briar-transparent.png")}
         style={{ width: "70%", height: "50%" }}
       />
