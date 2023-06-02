@@ -13,6 +13,7 @@ import api from "../../services/api";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamsList } from "../../Routes/app.Routes";
+import * as Animatable from "react-native-animatable";
 
 type EpisodeScreen = NativeStackNavigationProp<RootStackParamsList, "Episodes">;
 
@@ -54,7 +55,12 @@ export function Episodes() {
     <DismissKeyboard>
       <View style={styles.container}>
         <SafeAreaView>
-          <Text style={styles.textEpisodes}>Episódios</Text>
+          <Animatable.Text
+            animation={"slideInDown"}
+            style={styles.textEpisodes}
+          >
+            Episódios
+          </Animatable.Text>
           <TextInput
             onChangeText={(filter) => search(filter)}
             placeholder="Encontre o episódio"
