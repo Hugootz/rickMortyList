@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -18,12 +18,31 @@ interface Params {
 export function LocationList({ navigation }) {
   const route = useRoute();
   const { location } = route.params as Params;
+  useEffect(() => {
+    navigation.getParent().setOptions({ tabBarStyle: { display: "none" } });
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity
         style={styles.locationIcon}
-        onPress={() => navigation.goBack()}
+        onPress={() => {
+          navigation
+            .getParent()
+            .setOptions({
+              tabBarStyle: {
+                position: "absolute",
+                backgroundColor: "#000000",
+                borderTopWidth: 0,
+                bottom: 14,
+                left: 14,
+                right: 14,
+                borderRadius: 5,
+                display: "flex",
+              },
+            });
+          navigation.goBack();
+        }}
       >
         <Entypo name="back" size={35} color="#8bcf21" />
       </TouchableOpacity>
