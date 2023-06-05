@@ -6,6 +6,8 @@ import {
   TextInput,
   SafeAreaView,
   FlatList,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
 import { AnotherList } from "../../components/AnotherList";
@@ -61,12 +63,14 @@ export function Episodes() {
           >
             Episódios
           </Animatable.Text>
+
           <TextInput
             onChangeText={(filter) => search(filter)}
             placeholder="Encontre o episódio"
             placeholderTextColor="#8bcf21"
             style={styles.inputEpisodes}
           />
+
           <FlatList
             key={"2"}
             numColumns={2}
