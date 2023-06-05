@@ -6,6 +6,8 @@ import {
   TextInput,
   FlatList,
   SafeAreaView,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import api from "../../services/api";
@@ -69,6 +71,7 @@ export function Characters() {
           >
             Personagens
           </Animatable.Text>
+
           <TextInput
             onChangeText={(filter) => search(filter)}
             placeholder="Encontre o personagem"
@@ -108,6 +111,7 @@ const styles = StyleSheet.create({
     marginRight: "43%",
     top: -15,
   },
+
   inputCharacters: {
     padding: 10,
     backgroundColor: "#3f3f3f",
