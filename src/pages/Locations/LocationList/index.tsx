@@ -9,7 +9,7 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
 import { LocationCard } from "../../Locations";
-import { Octicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 interface Params {
   location: LocationCard;
@@ -27,20 +27,18 @@ export function LocationList({ navigation }) {
       <TouchableOpacity
         style={styles.locationIcon}
         onPress={() => {
-          navigation
-            .getParent()
-            .setOptions({
-              tabBarStyle: {
-                position: "absolute",
-                backgroundColor: "#000000",
-                borderTopWidth: 0,
-                bottom: 14,
-                left: 14,
-                right: 14,
-                borderRadius: 5,
-                display: "flex",
-              },
-            });
+          navigation.getParent().setOptions({
+            tabBarStyle: {
+              position: "absolute",
+              backgroundColor: "#000000",
+              borderTopWidth: 0,
+              bottom: 14,
+              left: 14,
+              right: 14,
+              borderRadius: 5,
+              display: "flex",
+            },
+          });
           navigation.goBack();
         }}
       >
@@ -53,9 +51,9 @@ export function LocationList({ navigation }) {
         <View style={styles.locationInfo}>
           <Text style={styles.infoTextLocation}>Information of locations</Text>
           <TouchableOpacity>
-            <Octicons
+            <MaterialCommunityIcons
               style={styles.iconLocation}
-              name="feed-star"
+              name="movie-open-star-outline"
               size={28}
               color="#8bcf21"
             />
@@ -121,7 +119,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: "Creepster_400Regular",
   },
-  iconLocation: { padding: 8, left: 2 },
+  iconLocation: { padding: 8, left: 2, bottom: 1 },
 
   locationStyle: {
     top: "35%",
