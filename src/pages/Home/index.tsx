@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  Modal,
-  TouchableOpacity,
-} from "react-native";
-import { FavoriteModal } from "../../components/FavoriteModal";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import * as Animatable from "react-native-animatable";
+import { useNavigation } from "@react-navigation/native";
+import { RootStackParamsList } from "../../Routes/app.Routes";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type HomeScreen = NativeStackNavigationProp<RootStackParamsList, "Home">;
+
 export function Home() {
-  const [modal, setModal] = useState(false);
+  const navigation = useNavigation<HomeScreen>();
+
   return (
     <View style={styles.container}>
       <Animatable.Text
@@ -28,13 +27,13 @@ export function Home() {
       />
 
       <View style={styles.buttonView}>
-        <TouchableOpacity style={styles.button} onPress={() => setModal(true)}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("Favorites")}
+        >
           <Text style={styles.buttonText}> favoritos </Text>
         </TouchableOpacity>
       </View>
-      <Modal visible={modal} onRequestClose={() => setModal(false)}>
-        <FavoriteModal />
-      </Modal>
     </View>
   );
 }
