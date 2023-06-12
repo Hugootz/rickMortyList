@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts, Creepster_400Regular } from "@expo-google-fonts/creepster";
+import { FavoritesProvider } from "./src/Contexts/Context";
 
 export default function App() {
   SplashScreen.preventAutoHideAsync();
@@ -14,9 +15,11 @@ export default function App() {
   SplashScreen.hideAsync();
 
   return (
-    <NavigationContainer>
-      <StatusBar backgroundColor="#202020" translucent={true} />
-      <AppRoutes />
-    </NavigationContainer>
+    <FavoritesProvider>
+      <NavigationContainer>
+        <StatusBar backgroundColor="#202020" translucent={true} />
+        <AppRoutes />
+      </NavigationContainer>
+    </FavoritesProvider>
   );
 }
