@@ -9,7 +9,7 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
 import { EpisodeCard } from "../../Episodes";
-import { Octicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 interface Params {
   episode: EpisodeCard;
@@ -26,20 +26,18 @@ export function EpisodeList({ navigation }) {
       <TouchableOpacity
         style={styles.episodeIcon}
         onPress={() => {
-          navigation
-            .getParent()
-            .setOptions({
-              tabBarStyle: {
-                position: "absolute",
-                backgroundColor: "#000000",
-                borderTopWidth: 0,
-                bottom: 14,
-                left: 14,
-                right: 14,
-                borderRadius: 5,
-                display: "flex",
-              },
-            });
+          navigation.getParent().setOptions({
+            tabBarStyle: {
+              position: "absolute",
+              backgroundColor: "#000000",
+              borderTopWidth: 0,
+              bottom: 14,
+              left: 14,
+              right: 14,
+              borderRadius: 5,
+              display: "flex",
+            },
+          });
           navigation.goBack();
         }}
       >
@@ -53,10 +51,10 @@ export function EpisodeList({ navigation }) {
         <View style={styles.episodeInfo}>
           <Text style={styles.infoText}>Information of episodes</Text>
           <TouchableOpacity>
-            <Octicons
+            <MaterialCommunityIcons
               style={styles.iconEpisode}
-              name="feed-star"
-              size={27}
+              name="movie-open-star-outline"
+              size={28}
               color="#8bcf21"
             />
           </TouchableOpacity>
@@ -119,7 +117,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: "Creepster_400Regular",
   },
-  iconEpisode: { padding: 8, top: 1, left: 5 },
+  iconEpisode: { padding: 8, bottom: 1, left: 5 },
   episodeView: {
     flex: 2,
     backgroundColor: "#3f3f3f",
