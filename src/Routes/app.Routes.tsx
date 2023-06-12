@@ -1,4 +1,5 @@
 import React from "react";
+import { BackHandler } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Episodes } from "../pages/Episodes";
@@ -9,6 +10,8 @@ import { CharactersList } from "../pages/Characters/CharactersList";
 import { Ionicons } from "@expo/vector-icons";
 import { EpisodeList } from "../pages/Episodes/EpisodeList";
 import { LocationList } from "../pages/Locations/LocationList";
+import { Favorites } from "../components/Favorites";
+import { useFocusEffect } from "@react-navigation/native";
 
 export type RootStackParamsList = {
   Episodes: any;
@@ -17,12 +20,22 @@ export type RootStackParamsList = {
   CharactersList: any;
   Locations: any;
   LocationList: any;
+  Home: undefined;
+  Favorites: undefined;
 }; // tipagem das rotas de tab e stack navigation, coloquei 'any' para rotas com parâmetros
 //    e 'undefined' para rotas sem parâmetros!
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-export function MyStack() {
+export function HomeStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="HomeScreen" component={Home} />
+      <Stack.Screen name="Favorites" component={Favorites} />
+    </Stack.Navigator>
+  );
+}
+export function CharactersStack() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="CharactersScreen" component={Characters} />
@@ -47,12 +60,16 @@ export function LocationStack() {
   );
 }
 export function AppRoutes() {
+  useFocusEffect(() => {
+    return () => BackHandler.addEventListener("hardwareBackPress", () => true);
+  });
   return (
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: "#8bcf21",
         tabBarInactiveTintColor: "#fff",
         tabBarShowLabel: false,
+
         tabBarStyle: {
           position: "absolute",
           backgroundColor: "#000000",
@@ -67,7 +84,7 @@ export function AppRoutes() {
     >
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeStack}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
@@ -79,7 +96,7 @@ export function AppRoutes() {
       />
       <Tab.Screen
         name="Characters"
-        component={MyStack}
+        component={CharactersStack}
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
