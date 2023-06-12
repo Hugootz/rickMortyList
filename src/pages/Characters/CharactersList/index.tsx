@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -8,18 +8,23 @@ import {
   Image,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
+import { useFavoriteContext } from "../../../Contexts/Context";
 
 import { useRoute } from "@react-navigation/native";
 import { CharactersCard } from "../../Characters";
-import { Octicons } from "@expo/vector-icons";
 
-interface Params {
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+export interface Params {
   character: CharactersCard;
 }
 
 export function CharactersList({ navigation }) {
   const route = useRoute();
   const { character } = route.params as Params;
+  const { favorites, AddFavorites }: any = useFavoriteContext();
+  const isFavorites = favorites.some((fav) => fav.id === character.id);
+
   useEffect(() => {
     navigation.getParent().setOptions({ tabBarStyle: { display: "none" } });
   }, []);
@@ -29,20 +34,18 @@ export function CharactersList({ navigation }) {
       <TouchableOpacity
         style={styles.CharactersIcon}
         onPress={() => {
-          navigation
-            .getParent()
-            .setOptions({
-              tabBarStyle: {
-                position: "absolute",
-                backgroundColor: "#000000",
-                borderTopWidth: 0,
-                bottom: 14,
-                left: 14,
-                right: 14,
-                borderRadius: 5,
-                display: "flex",
-              },
-            });
+          navigation.getParent().setOptions({
+            tabBarStyle: {
+              position: "absolute",
+              backgroundColor: "#000000",
+              borderTopWidth: 0,
+              bottom: 14,
+              left: 14,
+              right: 14,
+              borderRadius: 5,
+              display: "flex",
+            },
+          });
           navigation.goBack();
         }}
       >
@@ -60,13 +63,22 @@ export function CharactersList({ navigation }) {
         </View>
         <View style={styles.infoView}>
           <Text style={styles.charactersInfo}>Information of characters</Text>
-          <TouchableOpacity>
-            <Octicons
-              style={styles.icon}
-              name="feed-star"
-              size={27}
-              color="#8bcf21"
-            />
+          <TouchableOpacity onPress={() => AddFavorites(character)}>
+            {isFavorites ? (
+              <MaterialCommunityIcons
+                style={styles.icon}
+                name="movie-open-star"
+                size={28}
+                color="#8bcf21"
+              />
+            ) : (
+              <MaterialCommunityIcons
+                style={styles.icon}
+                name="movie-open-star-outline"
+                size={28}
+                color="#8bcf21"
+              />
+            )}
           </TouchableOpacity>
         </View>
         <View style={styles.rickInfo}>
@@ -124,7 +136,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingTop: 5,
   },
-  icon: { padding: 8, left: 2 },
+  icon: { padding: 8, left: 2, bottom: 2 },
   infoView: {
     width: 320,
     height: 50,
