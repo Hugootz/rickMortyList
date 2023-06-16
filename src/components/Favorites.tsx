@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   SafeAreaView,
   View,
@@ -10,6 +10,8 @@ import {
 import { MaterialCommunityIcons, Entypo } from "@expo/vector-icons";
 import { ListCard } from "./ListCard";
 import { useFavoriteContext } from "../Contexts/Context";
+import { CharactersCard } from "../pages/Characters";
+import {} from "../pages/Characters/CharactersList";
 
 export function Favorites({ navigation }) {
   const { favorites } = useFavoriteContext();
@@ -17,7 +19,9 @@ export function Favorites({ navigation }) {
   useEffect(() => {
     navigation.getParent().setOptions({ tabBarStyle: { display: "none" } });
   }, []);
-
+  function handleFavorites(character: CharactersCard) {
+    navigation.navigate("CharactersList", { character });
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -56,6 +60,7 @@ export function Favorites({ navigation }) {
           size={35}
           color="#8bcf21"
         />
+
         <FlatList
           key={"favorite"}
           numColumns={2}
@@ -63,6 +68,7 @@ export function Favorites({ navigation }) {
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => (
             <ListCard
+              onPress={handleFavorites}
               style={{
                 backgroundColor: "#3f3f3f",
                 padding: 10,
