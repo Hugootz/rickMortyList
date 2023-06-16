@@ -1,20 +1,42 @@
-import React, { useContext, createContext, useState } from "react";
+import React, { useContext, createContext, useState, useEffect } from "react";
 import { RickMortyProps } from "../services/RickMortyProps";
-export const FavoriteContext = createContext({});
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
+export const FavoriteContext = createContext({});
 export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState<RickMortyProps[]>([]);
 
+  useEffect(() => {
+    loadStorage();
+  }, []);
+
+  async function loadStorage() {
+    const auth = await AsyncStorage.getItem("@Favorites");
+    if (auth) {
+      setFavorites(JSON.parse(auth));
+      console.log(auth);
+    }
+  }
+
+  async function favoriteStorage(favorite) {
+    try {
+      await AsyncStorage.setItem("@Favorites", JSON.stringify(favorite));
+      setFavorites(favorite);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
-    <FavoriteContext.Provider value={{ favorites, setFavorites }}>
+    <FavoriteContext.Provider value={{ favorites, favoriteStorage }}>
       {children}
     </FavoriteContext.Provider>
   );
 }
 export function useFavoriteContext() {
-  const { favorites, setFavorites }: any = useContext(FavoriteContext);
+  const { favorites, favoriteStorage }: any = useContext(FavoriteContext);
 
-  function AddFavorites(newFavorites) {
+  function addFavorites(newFavorites) {
     //verificar se item favorito repitido
     const repeatedfavorites = favorites.some(
       (item) => item.id === newFavorites.id
@@ -24,11 +46,11 @@ export function useFavoriteContext() {
     let newList = [...favorites];
     if (!repeatedfavorites) {
       newList.push(newFavorites);
-      return setFavorites(newList);
+      return favoriteStorage(newList);
     }
     // Se for repetido ele será retirado da lista
     newList = favorites.filter((fav) => fav.id !== newFavorites.id);
-    return setFavorites(newList);
+    return favoriteStorage(newList);
   }
-  return { favorites, AddFavorites };
+  return { favorites, addFavorites };
 }
