@@ -11,7 +11,6 @@ import { MaterialCommunityIcons, Entypo } from "@expo/vector-icons";
 import { ListCard } from "./ListCard";
 import { useFavoriteContext } from "../Contexts/Context";
 import { CharactersCard } from "../pages/Characters";
-import {} from "../pages/Characters/CharactersList";
 
 export function Favorites({ navigation }) {
   const { favorites } = useFavoriteContext();
@@ -68,7 +67,7 @@ export function Favorites({ navigation }) {
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => (
             <ListCard
-              onPress={handleFavorites}
+              onPress={() => handleFavorites(item)}
               style={{
                 backgroundColor: "#3f3f3f",
                 padding: 10,
