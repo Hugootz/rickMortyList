@@ -32,6 +32,7 @@ export function HomeStack() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="Favorites" component={Favorites} />
+      <Stack.Screen name="CharactersList" component={CharactersList} />
     </Stack.Navigator>
   );
 }
