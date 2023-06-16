@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 interface ListProps {
-  onPress?: () => void;
+  onPress?: any;
   data: string;
   image: string;
   style?: any;
