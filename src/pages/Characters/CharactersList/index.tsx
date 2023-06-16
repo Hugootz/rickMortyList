@@ -22,7 +22,8 @@ export interface Params {
 export function CharactersList({ navigation }) {
   const route = useRoute();
   const { character } = route.params as Params;
-  const { favorites, AddFavorites }: any = useFavoriteContext();
+
+  const { favorites, addFavorites }: any = useFavoriteContext();
   const isFavorites = favorites.some((fav) => fav.id === character.id);
 
   useEffect(() => {
@@ -63,7 +64,7 @@ export function CharactersList({ navigation }) {
         </View>
         <View style={styles.infoView}>
           <Text style={styles.charactersInfo}>Information of characters</Text>
-          <TouchableOpacity onPress={() => AddFavorites(character)}>
+          <TouchableOpacity onPress={() => addFavorites(character)}>
             {isFavorites ? (
               <MaterialCommunityIcons
                 style={styles.icon}
