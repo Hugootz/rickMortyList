@@ -31,7 +31,7 @@ export function Home() {
           style={styles.button}
           onPress={() => navigation.navigate("Favorites")}
         >
-          <Text style={styles.buttonText}> favoritos </Text>
+          <Text style={styles.buttonText}> Favoritos </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -66,6 +66,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontFamily: "Creepster_400Regular",
     color: "#8bcf21",
-    fontSize: 18,
+    fontSize: 23,
   },
 });
