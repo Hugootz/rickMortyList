@@ -21,6 +21,7 @@ export function Favorites({ navigation }) {
   function handleFavorites(character: CharactersCard) {
     navigation.navigate("CharactersList", { character });
   }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -49,7 +50,7 @@ export function Favorites({ navigation }) {
             color="#8bcf21"
           />
         </TouchableOpacity>
-        <Text style={styles.modalText}>favoritos</Text>
+        <Text style={styles.modalText}>Favoritos</Text>
       </View>
 
       <View style={styles.iconView}>
