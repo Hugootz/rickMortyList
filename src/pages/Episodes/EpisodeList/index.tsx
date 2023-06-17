@@ -18,6 +18,7 @@ interface Params {
 export function EpisodeList({ navigation }) {
   const route = useRoute();
   const { episode } = route.params as Params;
+
   useEffect(() => {
     navigation.getParent().setOptions({ tabBarStyle: { display: "none" } });
   }, []);
