@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     color: "#8bcf21",
     top: 150,
     fontFamily: "Creepster_400Regular",
-    fontSize: 33,
+    fontSize: 30,
 
     borderWidth: 2,
     borderColor: "#8bcf21",
