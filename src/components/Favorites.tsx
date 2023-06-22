@@ -50,7 +50,7 @@ export function Favorites({ navigation }) {
             color="#8bcf21"
           />
         </TouchableOpacity>
-        <Text style={styles.modalText}>Favoritos</Text>
+        <Text style={styles.modalText}>Favorites</Text>
       </View>
 
       <View style={styles.iconView}>
