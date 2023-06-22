@@ -62,11 +62,11 @@ export function Locations() {
             animation={"slideInDown"}
             style={styles.textLocations}
           >
-            Localizações
+            Locations
           </Animatable.Text>
           <TextInput
             onChangeText={(filter) => search(filter)}
-            placeholder="Encontre a localização"
+            placeholder="Find the location"
             placeholderTextColor="#8bcf21"
             style={styles.inputLocations}
           />

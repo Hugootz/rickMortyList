@@ -61,12 +61,12 @@ export function Episodes() {
             animation={"slideInDown"}
             style={styles.textEpisodes}
           >
-            Episódios
+            Episodes
           </Animatable.Text>
 
           <TextInput
             onChangeText={(filter) => search(filter)}
-            placeholder="Encontre o episódio"
+            placeholder="Find the episode"
             placeholderTextColor="#8bcf21"
             style={styles.inputEpisodes}
           />
