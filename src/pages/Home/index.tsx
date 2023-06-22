@@ -31,7 +31,7 @@ export function Home() {
           style={styles.button}
           onPress={() => navigation.navigate("Favorites")}
         >
-          <Text style={styles.buttonText}> Favoritos </Text>
+          <Text style={styles.buttonText}> Favorites </Text>
         </TouchableOpacity>
       </View>
     </View>
