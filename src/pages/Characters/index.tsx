@@ -69,12 +69,12 @@ export function Characters() {
             animation={"slideInDown"}
             style={styles.textCharacters}
           >
-            Personagens
+            Characters
           </Animatable.Text>
 
           <TextInput
             onChangeText={(filter) => search(filter)}
-            placeholder="Encontre o personagem"
+            placeholder="Find the character"
             placeholderTextColor="#8bcf21"
             style={styles.inputCharacters}
           />
