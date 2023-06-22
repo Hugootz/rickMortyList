@@ -8,7 +8,7 @@ import {
   FlatList,
 } from "react-native";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
-import api from "../../services/api";
+import api from "../../Services/api";
 import { AnotherList } from "../../components/AnotherList";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamsList } from "../../Routes/app.Routes";

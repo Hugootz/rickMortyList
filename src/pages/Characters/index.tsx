@@ -10,7 +10,7 @@ import {
   Platform,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import api from "../../services/api";
+import api from "../../Services/api";
 import { ListCard } from "../../components/ListCard";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";

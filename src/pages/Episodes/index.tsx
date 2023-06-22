@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
 import { AnotherList } from "../../components/AnotherList";
-import api from "../../services/api";
+import api from "../../Services/api";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamsList } from "../../Routes/app.Routes";

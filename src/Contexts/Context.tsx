@@ -1,5 +1,5 @@
 import React, { useContext, createContext, useState, useEffect } from "react";
-import { RickMortyProps } from "../services/RickMortyProps";
+import { RickMortyProps } from "../Services/RickMortyProps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const FavoriteContext = createContext({});
