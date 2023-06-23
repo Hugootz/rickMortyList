@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     fontFamily: "Creepster_400Regular",
     marginTop: "25%",
     fontSize: 35,
-    marginRight: "45%",
+    marginRight: "55%",
     top: -15,
   },
   inputLocations: {

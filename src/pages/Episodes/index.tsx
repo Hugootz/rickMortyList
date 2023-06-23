@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     fontFamily: "Creepster_400Regular",
     marginTop: "25%",
     fontSize: 35,
-    marginRight: "55%",
+    marginRight: "60%",
     top: -15,
   },
   inputEpisodes: {

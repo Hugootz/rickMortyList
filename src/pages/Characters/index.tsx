@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     fontFamily: "Creepster_400Regular",
     marginTop: "25%",
     fontSize: 35,
-    marginRight: "43%",
+    marginRight: "48%",
     top: -15,
   },
 
