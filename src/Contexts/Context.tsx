@@ -11,10 +11,10 @@ export function FavoritesProvider({ children }) {
   }, []);
 
   async function loadStorage() {
-    const auth = await AsyncStorage.getItem("@Favorites");
-    if (auth) {
-      setFavorites(JSON.parse(auth));
-      console.log(auth);
+    const load = await AsyncStorage.getItem("@Favorites");
+    if (load) {
+      setFavorites(JSON.parse(load));
+      console.log(load);
     }
   }
 
