@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     top: 10,
     backgroundColor: "#202020",
     borderRadius: 10,
-    padding: 12,
+    padding: 10,
   },
   textList: {
     color: "#fff",
