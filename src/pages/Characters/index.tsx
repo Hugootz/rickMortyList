@@ -16,6 +16,7 @@ import { DismissKeyboard } from "../../components/DismissKeyboard";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamsList } from "../../Routes/app.Routes";
 import * as Animatable from "react-native-animatable";
+import { Load } from "../../components/Load";
 
 type CharactersScreen = NativeStackNavigationProp<
   RootStackParamsList,
@@ -78,20 +79,24 @@ export function Characters() {
             placeholderTextColor="#8bcf21"
             style={styles.inputCharacters}
           />
-          <FlatList
-            numColumns={2}
-            key={"1"}
-            showsVerticalScrollIndicator={false}
-            data={list}
-            keyExtractor={(item) => String(item.id)}
-            renderItem={({ item }) => (
-              <ListCard
-                data={item.name}
-                image={item.image}
-                onPress={() => handleCharactersList(item)}
-              />
-            )}
-          />
+          {loading ? (
+            <Load />
+          ) : (
+            <FlatList
+              numColumns={2}
+              key={"1"}
+              showsVerticalScrollIndicator={false}
+              data={list}
+              keyExtractor={(item) => String(item.id)}
+              renderItem={({ item }) => (
+                <ListCard
+                  data={item.name}
+                  image={item.image}
+                  onPress={() => handleCharactersList(item)}
+                />
+              )}
+            />
+          )}
         </SafeAreaView>
       </View>
     </DismissKeyboard>
