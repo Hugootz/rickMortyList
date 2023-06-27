@@ -6,8 +6,6 @@ import {
   TextInput,
   SafeAreaView,
   FlatList,
-  KeyboardAvoidingView,
-  Platform,
 } from "react-native";
 import { DismissKeyboard } from "../../components/DismissKeyboard";
 import { AnotherList } from "../../components/AnotherList";
