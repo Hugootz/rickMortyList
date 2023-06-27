@@ -2,10 +2,10 @@ import React from "react";
 import { Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 interface ListProps {
-  onPress?: any;
+  onPress?: () => void;
   data: string;
   image: string;
-  style?: any;
+  style?: undefined;
 }
 
 export function ListCard({ data, image, onPress, style }: ListProps) {
